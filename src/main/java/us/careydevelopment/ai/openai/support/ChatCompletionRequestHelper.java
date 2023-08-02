@@ -7,7 +7,7 @@ import java.util.List;
 
 public class ChatCompletionRequestHelper {
 
-    private static final String MODEL = "gpt-3.5-turbo-0613";
+    private static final String MODEL = "gpt-3.5-turbo";
 
     public static ChatCompletionRequest getRequest(final List<ChatMessage> messages) {
         final ChatCompletionRequest chatCompletionRequest = ChatCompletionRequest
