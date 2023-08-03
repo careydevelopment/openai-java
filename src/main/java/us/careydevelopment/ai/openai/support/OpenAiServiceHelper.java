@@ -3,6 +3,8 @@ package us.careydevelopment.ai.openai.support;
 import com.theokanning.openai.service.OpenAiService;
 import us.careydevelopment.ai.openai.util.AiProperties;
 
+import java.time.Duration;
+
 public class OpenAiServiceHelper {
 
     public static OpenAiService getOpenAiService() {
@@ -10,7 +12,7 @@ public class OpenAiServiceHelper {
         //and then assign your OpenAI key to the openai.token property
         final String token = AiProperties.get("openai.token");
 
-        final OpenAiService service = new OpenAiService(token);
+        final OpenAiService service = new OpenAiService(token, Duration.ofSeconds(30));
 
         return service;
     }
