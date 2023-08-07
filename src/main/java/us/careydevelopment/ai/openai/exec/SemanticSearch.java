@@ -7,12 +7,7 @@ import us.careydevelopment.ai.openai.model.SearchResult;
 import us.careydevelopment.ai.openai.support.EmbeddingsHelper;
 import us.careydevelopment.ai.openai.support.SemanticSearchHelper;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class SemanticSearch {
 
@@ -39,13 +34,6 @@ public class SemanticSearch {
             results.forEach(result -> System.out.println(result.getText() + " " + result.getScore()));
         } catch (Exception e) {
             LOG.error("Problem with semantic search!", e);
-        }
-    }
-
-    private static List<String> indexContent() throws IOException {
-        try (final Stream<String> stream = Files.lines(Paths.get(INPUT_FILE))) {
-            final List<String> lines = stream.collect(Collectors.toList());
-            return lines;
         }
     }
 }
