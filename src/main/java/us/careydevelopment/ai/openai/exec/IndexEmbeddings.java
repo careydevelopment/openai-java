@@ -18,6 +18,7 @@ public class IndexEmbeddings {
     private static final String INDEX_PARAM = "{\"nlist\":1024}";
 
     private static final String COLLECTION_NAME = "amazon_food_reviews";
+    private static final String INDEX_NAME = "amazon_food_reviews_index";
     private static final String EMBEDDING_FIELD = "content_embedding";
 
     public static void main(String[] args) {
@@ -30,11 +31,12 @@ public class IndexEmbeddings {
                         .withIndexType(INDEX_TYPE)
                         .withMetricType(MetricType.L2)
                         .withExtraParam(INDEX_PARAM)
-                        .withSyncMode(Boolean.FALSE)
+                        .withIndexName(INDEX_NAME)
+                        .withSyncMode(Boolean.TRUE)
                         .build()
         );
 
-        System.err.println(response);
+        System.out.println(response);
 
         client.close();
     }
